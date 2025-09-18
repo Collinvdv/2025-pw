@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            body {
+                background-color: green;
+            }
+
+            h1, h2, h3 {
+                color: yellow;
+            }
+            
+            h1 .heading {
+                color: red;
+            }
+
+            .heading {
+                color: blue;
+            }
+            
+            
+        </style>
+    </head>
+    <body>
+        <!-- First block -->
+        <div style="background-color: pink;">
+            <img src="https://collinvandervorst.be/assets/images/collin.webp" />
+            <h1 class="heading">
+                Collin Van der Vorst Portfolio
+            </h1>
+    
+            <a href="https://collinvandervorst.be" target="_blank">
+                Go to portfolio
+            </a>
+        </div>
+
+        <h2>
+            1. Introduction
+        </h2>
+
+        <p>
+            Hello, <br>
+            Welcome to my website. <br>
+            Hope you like it.<br>
+            xxxx.
+        </p>
+
+        <h2>
+            2. Work
+        </h2>
+
+        <h3>
+            2.1 School work
+        </h3>
+
+        <h3>
+            2.2 Freelance work
+        </h3>
+
+        <h2>
+            3. Contact
+        </h2>
+        <form>
+            <input type="text" placeholder="firstname" id="fn"/>
+        </form>
+
+        <button class="js-button">
+            Say hello
+        </button>
+
+        <script>
+            var buttonElement = document.querySelector(".js-button");
+            buttonElement.addEventListener("click", function() {
+                sayHello("HALLO JE HEBT OP MIJ GEKLIKT");
+            });
+            // Variables
+            var firstname = "Collin";
+            firstname = "Lisa";
+            var age = 34;
+            var height = 1.94;
+            var isMarried = true;
+
+            if (isMarried == true) {
+                console.log("Bey bey life");
+            } else {
+                console.log("enjoy while you can");
+            }
+
+            switch (firstname) {
+                case "Lisa":
+                    console.log("collins wife");
+                    break;
+            }
+
+            for (var i = 1; i <= 10; i++) {
+                console.log(i);
+            }
+
+            var goats = ["T-rex", "Connie","Clyde"];
+            goats.push("insest goat");
+            console.log(goats.length);
+
+            function sayHello(name) {
+                console.log("Hello " + name);
+            }
+
+            sayHello("Collin");
+
+            var product = {
+                "id" : 50,
+                "name": "Sneakers",
+                "shops": ['dmd','bxl']
+            }
+        </script>
+    </body>
+</html>
