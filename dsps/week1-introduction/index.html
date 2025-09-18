@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            body {
+                background-color: pink;
+            }
+
+            .heading {
+                color: purple;
+            }
+
+            body h2 {
+                color: green;
+            }
+
+            h1 .heading {
+                color: green;
+            }
+
+            h1, h2, h3 {
+                color: red;
+            }
+
+            
+
+        </style>
+    </head>
+    <body>
+        <div style="background-color: green;">
+            <h1 class="heading">
+                Collin Van der Vorst portfolio
+            </h1>
+    
+            <img alt="omg this is guy is so beautiful" src="https://collinvandervorst.be/assets/images/collin.webp"/>
+    
+            <a href="https://collinvandervorst.be" target="_blank">
+                Go to collins website
+            </a>
+        </div>
+
+        <h2>
+            1. Introduction
+        </h2>
+
+        <p>
+            Hello, <br>
+            My name is Collin. <br>
+            Welcome to my website
+        </p>
+
+        <h2>
+            2. Projects
+        </h2>
+
+        <h3>
+            2.1 School projects
+        </h3>
+        <!--  -->
+        <ul>
+            <li>
+                School project 1
+            </li>
+            <li>
+                School project 2
+            </li>
+        </ul>
+
+        <h3>
+            2.2 Freelance projects
+        </h3>
+
+        <h2>
+            3. Contact
+        </h2>
+
+        <button class="js-button-hello">
+            Say hello
+        </button>
+
+        <script>
+            var buttonElement = document.querySelector(".js-button-hello");
+
+            buttonElement.addEventListener("click", function() {
+                sayHello();
+            });
+
+            var firstname = "Collin"; // string
+            var age = 34;
+            var height = 1.94;
+            var isMarried = true;
+            var goats = ["T-rex", "Connie", "Clyde"];
+            goats.push("baby-goat");
+
+            if (isMarried == true) {
+                console.log("bye bye life");
+            } else {
+                console.log("enjoy while you can");
+            }
+
+            switch (name) {
+                case "collin":
+                    console.log("That is one helle of a name");
+                    break;
+            }
+
+            for (var i = 0; i < goats.length; i++) {
+                console.log(goats[i]);
+            }
+
+            var user = {
+                "name": "Collin",
+                "age": 34,
+                "goats": [
+                    "T-rex",
+                    "Conny",
+                    "Clyde"
+                ],
+                "partner" : {
+                    "name" : "Lisa"
+                }
+            }
+
+            console.log(user.partner.name);
+
+            function sayHello() {
+                alert("Helllllo");
+            }
+        </script>
+    </body>
+</html>
