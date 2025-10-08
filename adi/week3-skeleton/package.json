@@ -1,0 +1,14 @@
+{
+  "name": "week3-skeleton",
+  "version": "1.0.0",
+  "description": "Test voorbeeld van hoe ik npm ga gebruiken",
+  "main": "index.js",
+  "scripts": { 
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "color": "^5.0.2"
+  }
+}
