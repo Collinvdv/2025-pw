@@ -14,11 +14,35 @@ router.get('/', async (req, res) => {
 })
 
 // ------------
-// Add artist
+// [POST ]Add artist
+// Accept JSON { "name" : "dj name"}
+// return succes
 // ------------
-router.post('/', (req, res) => {
-  // @todo: link to database
-  res.send("[POST] add new artist");
+router.post('/', async(req, res) => {
+  // Check if artist with a name is already in the database
+  // similar as SELECT * FROM Artists WHERE name LIKE 'dj ghost'
+  const checkArtist = await prisma.artists.findMany({
+    where: {
+      name: req.body.name
+    }
+  });
+
+  // If multiple artists it means it is already existing and I don't want to create a new one 
+  if (checkArtist.length > 0) {
+    res.json(
+      {
+        "status": "Artist name already existing"
+      }
+    )
+  } else {
+      const newArtist = await prisma.artists.create({
+        data: {
+          name: req.body.name
+        }
+      });
+
+      res.json(newArtist);
+  }
 })
 
 // ------------

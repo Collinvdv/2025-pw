@@ -1,6 +1,9 @@
 const express = require("express");
 const app = express();
 
+// make the api accept json
+app.use(express.json());
+
 // All the routes 
 const artistsRouter = require('./routes/artists');
 const goatsRouter = require('./routes/goats');
