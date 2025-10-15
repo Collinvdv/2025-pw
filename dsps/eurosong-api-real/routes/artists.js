@@ -1,12 +1,16 @@
 const express = require('express');
 const router = express.Router();
 
+// we will use the prisma client to connect with the database
+const { PrismaClient } = require('../generated/prisma');
+const prisma = new PrismaClient();
+
 // ------------
 // Get artist
 // ------------
-router.get('/', (req, res) => {
-  // @todo: link to database
-  res.send("[GET] all the artists");
+router.get('/', async (req, res) => {
+  let artists = await prisma.artists.findMany();
+  res.json(artists);
 })
 
 // ------------
