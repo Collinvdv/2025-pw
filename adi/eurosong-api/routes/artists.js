@@ -66,10 +66,20 @@ router.delete('/:id', async (req, res) => {
 // [PUT] Artists 
 // return boolean (true or false )
 // -------------------------
-router.put('/:id', (req, res) => {
-  // @todo: link to database
-  // req.body -> om data uit een put te halen
-  res.send("Updated artist");
+router.put('/:id', async (req, res) => {
+  let artistId = req.params.id;
+  let name = req.body.name;
+
+  let updatedArtist = await prisma.artists.update({
+    where: {
+      artist_id: parseInt(artistId)
+    },
+    data: {
+      name
+    }
+  })
+
+  res.json(updatedArtist);
 })
 
 module.exports = router;
