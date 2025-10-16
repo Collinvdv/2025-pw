@@ -53,13 +53,21 @@ router.post('/', async(req, res) => {
 
     }
 });
+
 // -------------------------
 // [DELETE] Songs 
 // return boolean (true or false )
 // -------------------------
-router.delete('/:id', (req, res) => {
-  // @todo: link to database
-  res.send("Deleted Songs");
+router.delete('/:id', async (req, res) => {
+  const songId = req.params.id;
+
+  const deletedSong = await prisma.songs.delete({
+    where: {
+      song_id: parseInt(songId)
+    }
+  });
+
+  res.send(deletedSong);
 })
 
 // -------------------------
