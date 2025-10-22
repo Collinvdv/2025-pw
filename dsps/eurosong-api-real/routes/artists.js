@@ -48,17 +48,35 @@ router.post('/', async(req, res) => {
 // ------------
 // Delete artist
 // ------------
-router.delete('/:id', (req, res) => {
-  // @todo: link to database
-  res.send("[DELETE] delete an artist");
+router.delete('/:id', async(req, res) => {
+  const deletedArtistId = req.params.id;
+
+  const deleteArtist = await prisma.artists.delete({
+    where: {
+      artist_id: parseInt(deletedArtistId)
+    }
+  });
+
+  res.json(deleteArtist);
 })
 
 // ------------
 // Update artist
 // ------------
-router.put('/:id', (req, res) => {
-  // @todo: link to database
-  res.send("[PUT] update an artist");
+router.put('/:id', async(req, res) => {
+  const updatedArtistId = req.params.id;
+  const updatedName = req.body.name;
+
+  const updatedArtist = await prisma.artists.update({
+    where: {
+      artist_id: parseInt(updatedArtistId)
+    },
+    data: {
+      name: updatedName
+    }
+  })
+
+  res.json(updatedArtist);
 })
 
 module.exports = router;
