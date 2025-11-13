@@ -11,6 +11,7 @@
     })
     // Data (ref)
     let artists = ref([]);
+    let newArtistName = ref("");
 
     // Methods 
     const getArtists = () => {
@@ -23,6 +24,22 @@
     const removeArtist = (id) => {
         fetch("http://localhost:3000/artists/" + id, {
             method: "DELETE"
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                getArtists();
+            });
+    }
+
+    const addArtist = () => {
+        fetch("http://localhost:3000/artists/", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                name: newArtistName.value
+            })
         })
             .then((res) => res.json())
             .then((data) => {
@@ -52,4 +69,18 @@
     <p v-if="artists.length == 0">
         Geen artiesten beschikbaar
     </p>
+
+    <hr/>
+
+    <h2>
+        Create new artist
+    </h2>
+
+    <label>
+        Name
+    </label>
+    <input type="text" v-model="newArtistName"/>
+    <button @click="addArtist()">
+        Add new artist
+    </button>
 </template>
