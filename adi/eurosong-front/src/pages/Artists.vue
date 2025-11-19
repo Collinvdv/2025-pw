@@ -81,6 +81,6 @@
     </label>
     <input type="text" v-model="newArtistName"/>
     <button @click="addArtist()">
-        Add new artist
+        Add new artist test
     </button>
 </template>
