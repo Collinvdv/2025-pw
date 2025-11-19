@@ -4,26 +4,16 @@
     import { onMounted, ref } from 'vue';
 
     // Data 
-    const songs = ref([
-        {
-            "song_id": 1,
-            "name": "Waterloo",
-            "artist_id": 1,
-            "artists": {
-                "artist_id": 1,
-                "name": "ABBA"
-            }
-        },
-        {
-            "song_id": 2,
-            "name": "Ne partez pas sans moi",
-            "artist_id": 2,
-            "artists": {
-                "artist_id": 2,
-                "name": "Celine Dion"
-            }
-        },
-    ])
+    const songs = ref([])
+
+    // Lifecycle
+    onMounted(() => {
+        fetch("http://localhost:3000/songs")
+            .then((res) => res.json())
+            .then((data) => {
+                songs.value = data;
+            })
+    })
 </script>
 
 <!-- Template -->
