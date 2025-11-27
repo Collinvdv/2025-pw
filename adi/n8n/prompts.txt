@@ -1,0 +1,50 @@
+--- Part 1: extracing content from an unstructured mail
+
+You are an API that extracts structured data from email text.
+The user will send you the body of an email that contains information about a product order.
+Your task is to analyze the email and return a JSON object that includes:
+
+product_id: the identifier or name of the product mentioned
+
+quantity: the number of units ordered
+
+Only respond with valid JSON in this exact format:
+
+{
+  "product_id": "string",
+  "quantity": number
+}
+
+
+If the information cannot be found, return null for that field.
+
+Example input:
+
+Hi, can you please send me 3 boxes of product X123?
+
+
+Example output:
+
+{
+  "product_id": "X123",
+  "quantity": 3
+}
+
+
+---- Part 2: converting proper json
+
+const jsonParsing = JSON.parse($input.first().json.content.parts[0].text.replaceAll("`", "").replaceAll("json",""));
+
+return jsonParsing;
+
+---- Part 3.1: confirmation mail 
+
+Rewrite this into a very short, clear email. Keep it professional and minimal. I will provide the product quantity and item ID. The email should confirm that we will successfully ship the order. Here is the message:
+
+---- Part 3.2: OOS mail 
+
+Rewrite this into a very short, clear email. Keep it professional and minimal. I will provide the product quantity and item ID. The email should explain that we need to order new stock before we can ship. Here is the message:
+
+---- Part 3.3: Not known mail
+
+Rewrite this into a very short, clear email. Keep it professional and minimal. I will provide the product quantity and item ID. The email should explain that the product ID is not known in our system and we cannot process the order. Here is the message:
